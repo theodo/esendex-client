@@ -1,0 +1,62 @@
+{
+    "name": "Esendex API",
+    "baseUrl": "https://api.esendex.com/v1.0/",
+    "operations": {
+        "MessageDispatcher": {
+            "httpMethod": "POST",
+            "uri": "messagedispatcher",
+            "summary": "The Message Dispatcher resource can be used to send one or more SMS and Voice messages either straight away or scheduled in the future at a later point.",
+            "data": {
+                "xmlRoot": {
+                    "name": "messages"
+                },
+                "xmlEncoding": "utf8"
+            },
+            "parameters": {
+                "accountreference": {
+                    "type": "string",
+                    "required": true,
+                    "location": "xml"
+                },
+                "messages": {
+                    "type": "array",
+                    "required": true,
+                    "location": "xml",
+                    "data": {
+                        "xmlFlattened": true
+                    },
+                    "items": {
+                        "type": "object",
+                        "sentAs": "message",
+                        "properties": {
+                            "body": {
+                                "location": "xml",
+                                "type": "string",
+                                "required": true
+                            },
+                            "from": {
+                                "location": "xml",
+                                "type": "string"
+                            },
+                            "to": {
+                                "location": "xml",
+                                "type": "string",
+                                "required": true
+                            },
+                            "type": {
+                                "location": "xml",
+                                "type": "string"
+                            },
+                            "validity": {
+                                "location": "xml",
+                                "type": "integer",
+                                "default": 0,
+                                "minimum": 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
