@@ -2,6 +2,7 @@
     "name": "theodo/esendex-client",
     "type": "library",
     "description": "Esendex REST API Client",
+    "license": "MIT",
     "keywords": ["Esendex", "Guzzle", "Theodo"],
     "authors": [
         {
